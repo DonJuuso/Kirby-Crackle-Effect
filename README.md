@@ -1,4 +1,4 @@
-# KirbyCrackle: A Web FX Research Showcase
+# KirbyCrackle: A Web FX Research Showcase (NOT READY)
 
 **KirbyCrackle** is a research-focused collection of particle-based visual effects designed for modern websites, interactive interfaces, and UI motion design.
 
