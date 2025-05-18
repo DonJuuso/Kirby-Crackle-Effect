@@ -1,9 +1,21 @@
-MIT License
+MIT License (applies to code only)
 
-Copyright (c) 2025 Juuso Karjalainen
+Copyright (c) 2025 Juuso Karjalainen / Menace Comics
+
+This license applies only to the source code and scripts in this repository.
+
+---
+
+All visual artwork, illustrations, trading card designs, and concept art included in this repository are the exclusive intellectual property of Menace Comics. These assets are protected by international copyright law and are not licensed under the MIT License.
+
+They are included solely for demonstration and documentation purposes. Any use, reproduction, modification, or distribution of the visual content is strictly prohibited without prior written permission from Menace Comics.
+
+Unauthorized use of these materials may result in legal action.
+
+---
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
+of the source code and associated documentation files (the "Software"), to deal
 in the Software without restriction, including without limitation the rights
 to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
 copies of the Software, and to permit persons to whom the Software is
@@ -19,3 +31,5 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
+
+
