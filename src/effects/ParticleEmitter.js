@@ -4,46 +4,68 @@ export class ParticleEmitter {
     this.config = Object.assign({
       count: 400,
       sizeRange: [4, 12],
-      spread: 75,
-      colors: ['#ff4655', '#ffffff']
+      spread: 50,
+      colors: ['red', 'black'],
+      edgeBased: true
     }, config);
   }
 
   generateParticles() {
-  for (let i = 1; i <= this.config.count; i++) {
-    const particle = document.createElement('div');
-    particle.classList.add('particle');
+    const width = this.container.offsetWidth;
+    const height = this.container.offsetHeight;
+    const perSide = Math.floor(this.config.count / 4);
 
-    let size, distance, x, y;
+    const sides = [
+      { side: 'top', count: perSide },
+      { side: 'right', count: perSide },
+      { side: 'bottom', count: perSide },
+      { side: 'left', count: perSide }
+    ];
 
-    if (i <= 150) {
-      size = Math.random() * 20 + 10; // 10px to 30px
-      distance = Math.random() * 50;
-      const topLimit = -40;
-      const bottomLimit = 20;
-      y = Math.sin((Math.random() * 360) * (Math.PI / 180)) * distance;
-      y = Math.max(topLimit, Math.min(bottomLimit, y)); // clamp Y
-    } else {
-      size = Math.random() * 5 + 2;
-      distance = Math.random() * 75;
-      const topLimit = -30;
-      const bottomLimit = 30;
-      y = Math.sin((Math.random() * 360) * (Math.PI / 180)) * distance;
-      y = Math.max(topLimit, Math.min(bottomLimit, y)); // clamp Y
-    }
+    sides.forEach(({ side, count }) => {
+      for (let i = 0; i < count; i++) {
+        const particle = document.createElement('div');
+        particle.classList.add('particle');
 
-    const angle = Math.random() * 360;
-    x = Math.cos((angle * Math.PI) / 180) * distance;
+        const size = Math.random() * (this.config.sizeRange[1] - this.config.sizeRange[0]) + this.config.sizeRange[0];
+        particle.style.width = `${size}px`;
+        particle.style.height = `${size}px`;
+        particle.style.backgroundColor = this.config.colors[Math.floor(Math.random() * this.config.colors.length)];
+        particle.style.animationDelay = `${Math.random() * 3}s`;
 
-    particle.style.width = `${size}px`;
-    particle.style.height = `${size}px`;
-    particle.style.setProperty('--x', `${x}px`);
-    particle.style.setProperty('--y', `${y}px`);
-    particle.style.animationDelay = `${Math.random() * 4}s`;
-    particle.style.backgroundColor = Math.random() > 0.5 ? 'red' : 'black';
+        let x = 0, y = 0;
+        switch (side) {
+          case 'top':
+            x = Math.random() * width;
+            y = 0;
+            particle.style.setProperty('--x', `${(Math.random() - 0.5) * this.config.spread}px`);
+            particle.style.setProperty('--y', `${-Math.random() * this.config.spread}px`);
+            break;
+          case 'right':
+            x = width;
+            y = Math.random() * height;
+            particle.style.setProperty('--x', `${Math.random() * this.config.spread}px`);
+            particle.style.setProperty('--y', `${(Math.random() - 0.5) * this.config.spread}px`);
+            break;
+          case 'bottom':
+            x = Math.random() * width;
+            y = height;
+            particle.style.setProperty('--x', `${(Math.random() - 0.5) * this.config.spread}px`);
+            particle.style.setProperty('--y', `${Math.random() * this.config.spread}px`);
+            break;
+          case 'left':
+            x = 0;
+            y = Math.random() * height;
+            particle.style.setProperty('--x', `${-Math.random() * this.config.spread}px`);
+            particle.style.setProperty('--y', `${(Math.random() - 0.5) * this.config.spread}px`);
+            break;
+        }
 
-    this.container.appendChild(particle);
+        particle.style.left = `${x}px`;
+        particle.style.top = `${y}px`;
+
+        this.container.appendChild(particle);
+      }
+    });
   }
-}
-
 }
