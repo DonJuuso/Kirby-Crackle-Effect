@@ -2,27 +2,35 @@ import KirbyCrackle from './components/KirbyCrackle';
 
 function App() {
   return (
-    <>
-      <header style={{ textAlign: 'center', marginTop: '2rem' }}>
-        <h1>KirbyCrackle</h1>
-        <p>A case study showcase of web particle FX</p>
-      </header>
+    <div className="app-container">
+      <header className="site-header">
+  <div className="logo-title">
+    <span className="logo-accent">Kirby</span>Crackle
+  </div>
+  <nav className="site-nav">
+    <a href="#fx" className="nav-link">FX Demo</a>
+    <a href="https://github.com/DonJuuso/Kirby-Crackle-Effect" target="_blank" rel="noreferrer" className="nav-link">GitHub</a>
+  </nav>
+</header>
 
+
+
+      <main className="main-content">
         <div className="card crackle-card">
-  <h2>Black & Red Crackle</h2>
-  <p>-</p>
-  <KirbyCrackle />
-  <p className="caption"></p>
-</div>
+          <KirbyCrackle />
+          <p className="caption"></p>
+        </div>
+      </main>
 
-      <footer style={{ textAlign: 'center', marginTop: '4rem', opacity: 0.6 }}>
+      <footer>
         <p>© 2025 DonJuuso | Menace Comics</p>
       </footer>
-    </>
+    </div>
   );
 }
 
 export default App;
+
 
 
 
